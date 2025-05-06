@@ -22,16 +22,16 @@ spec:
         app.kubernetes.io/name: nginx
     spec:
       containers:
-      - name: nginx
-        image: nginx:latest
-        ports:
-          - name: http
-            containerPort: 80
+        - name: nginx
+          image: nginx:latest
+          ports:
+            - name: http
+              containerPort: 80
   strategy:
     canary:
       steps:
         - setWeight: 20
-          pause: {}
+        - pause: {}
         - setWeight: 40
         - pause:
             duration: 1m
